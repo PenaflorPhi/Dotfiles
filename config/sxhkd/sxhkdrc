@@ -1,0 +1,142 @@
+#                     /$$             /$$                    
+#                    | $$            | $$                    
+# /$$$$$$$ /$$   /$$| $$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$$
+# /$$_____/|  $$ /$$/| $$__  $$ /$$__  $$ /$$__  $$ /$$_____/
+#|  $$$$$$  \  $$$$/ | $$  \ $$| $$  | $$| $$  \__/| $$      
+# \____  $$  >$$  $$ | $$  | $$| $$  | $$| $$      | $$      
+# /$$$$$$$/ /$$/\  $$| $$  | $$|  $$$$$$$| $$      |  $$$$$$$
+#|_______/ |__/  \__/|__/  |__/ \_______/|__/       \_______/
+#================A.P=======MBG===============================
+
+#Terminal Emulator
+super + Return
+    alacritty
+super + shift + Return
+    sudo alacritty
+super + space 
+    $HOME/.config/rofi/launcher.sh
+    #rofi -show run
+
+
+# Quit/Restart bspwm
+super + alt + {Delete,r}
+    bspc {quit, wm -r}
+# Reooad sxhkd configuration file
+super + r
+    pkill -USR1 -x sxhkd
+# Close and Kill programs
+super + {_,shift +}Delete
+    bspc node -{c,k}
+
+#================A.P=======MBG===============================
+## bspwm related
+# Alternate between tiled and monocle layout
+super + m
+    bspc desktop -l next
+
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.local
+
+# set the window state
+super + {t,shift + t}
+	bspc node -t {tiled,pseudo_tiled}
+
+# Focus the node in the given direction
+super + {_,shift +}{Left,Down,Up,Right}
+    bspc node -{f,s} {west,south,north,east}
+
+# Focus the Next/Previous desktop
+super + bracket{left,right}
+    bspc desktop -f {prev,next}.local
+
+# Focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f, node -d} '^{1-9,10}'
+
+# preselect the direction
+super + ctrl + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# expand a window by moving one of its side outward
+super + alt + {Left,Down,Up,Right}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + ctrl + {Left,Down,Up,Right}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+#================A.P=======MBG===============================
+#File Managers
+super + f
+    alacritty -e ranger
+super + F
+    sudo alacritty -e ranger
+super + e
+   dolphin
+
+#Browsers
+super + a
+    firefox
+super + A
+    firefox --private-window
+super + p
+    chromium
+super + P
+    chromium --incognito
+super + b
+    tor-browser
+
+#Other utilities
+super + h
+    alacritty -e htop
+super + q
+    $HOME/.config/scripts/qbittorrent.sh
+super + s
+  $HOME/.config/scripts/joplin.sh
+super + S
+  teams
+
+#Nitrogen
+super + n
+    nitrogen
+#PavuControl
+super + c
+    pavucontrol
+#Youtube-dl-gui
+super + y
+    yt-dlg
+Print
+    flameshot gui
+XF86Tools
+    spotify
+
+#================A.P=========================================
+#Audio
+XF86AudioNext
+    dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+XF86AudioPrev
+    dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+XF86AudioPlay
+    dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+XF86AudioMute
+    pamixer -t
+XF86AudioRaiseVolume
+    pamixer -i 5
+XF86AudioLowerVolume
+    pamixer -d 5
+#================A.P=========================================
+#Dunst
+ctrl + grave
+    dunstctl history-pop &
+ctrl + Return
+    dunstctl close-all &
+
+#Telegram
+super + v
+    telegram-desktop
+

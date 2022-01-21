@@ -1,0 +1,28 @@
+#! /bin/sh
+pkill polybar
+polybar example &
+pkill dunst
+dunst &
+setxkbmap -layout "us,latam" -option "grp:alt_shift_toggle" &
+~/.fehbg &
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+bspc config border_width         2
+bspc config window_gap          12
+bspc config top_padding 	20
+bspc config bottom_padding 	 0
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc config normal_border_color 	"#282C34"
+bspc config focused_border_color 	"#61AFEF"
+bspc config presel_feedback_color 	"#ABB2BF"
+
+bspc rule -a Zathura		state=tiled
+bspc rule -a firefox 		desktop='^1'
+bspc rule -a Chromium 		desktop='^5'
+bspc rule -a Joplin		desktop='^8'
+bpsc rule -a qBittorrent	desktop='^10'
