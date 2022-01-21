@@ -12,7 +12,7 @@ echo 'Success !'
 mkdir ~/.config ~/Pictures ~/Pictures/Feh
 
 # Basic Stuff
-paru -S --needed xorg xorg-xinit numlockx htop wget bash-completion reflector
+paru -S --needed xorg xorg-xinit numlockx htop wget bash-completion reflector wget
 paru -S --needed systemd-numlockontty
 
 
@@ -45,8 +45,6 @@ paru -S --needed pulseaudio pavucontrol pamixer
 pulseaudio --check
 pulseaudio -D
 
-echo 'Remember to change channels in Pavu'
-
 # Install Fonts
 paru -S --needed noto-fonts noto-fonts-cjk noto-fonts-extra ttf-jetbrains-mono ttf-dejavu 
 paru -S --needed noto-fonts-emoji-apple apple-fonts nerd-fonts-jetbrains-mono
@@ -75,3 +73,10 @@ paru -S --needed python-bidi fontforge
 
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
+
+
+# Neovim
+paru -S --needed xsel python python-pip stylua-bin prettier python-black
+pip install pynvim 
+
+
