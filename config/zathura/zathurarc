@@ -25,10 +25,10 @@ map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
 
 set recolor true
-set recolor-lightcolor \#fbf1c7
-set default-bg \#282828
+set recolor-lightcolor \#FBF1C7
+set default-bg \#282C34
 set recolor-darkcolor \#000000
-set highlight-color \#d65d0e
+set highlight-color \#61AFEF
 set highlight-active-color \#FFFFFF
 
 
