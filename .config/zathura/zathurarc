@@ -1,0 +1,13 @@
+set adjust-open "best-fit"
+set pages-per-row 1
+set zoom-min 5
+set guioptions ""
+set render-loading "false"
+
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+
+set selection-clipboard clipboard
+set selection-notification false
+set sandbox true

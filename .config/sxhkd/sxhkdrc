@@ -1,0 +1,149 @@
+# Terminal Emulator
+super + Return
+    alacritty
+super + e
+    nemo
+
+super + space
+    exec ~/.config/rofi/launchers/type-1/launcher.sh
+super + shift + space
+    exec ~/.config/rofi/launchers/type-4/launcher.sh
+super + alt + Delete
+    exec ~/.config/rofi/powermenu/type-1/launcher.sh
+
+# make sxhkd reload its configuration files:
+super + Escape
+  pkill -USR1 -x sxhkd
+#======================================
+#           BSPWM Hotkeys             |
+#======================================
+# Quit/Restart BSPWM
+super + alt + r
+    bspc wm -r
+
+# Close and Kill
+super + {_,shift + }Delete
+    bspc node -{c,k}
+
+# Alternate between the tiled and monocle layout
+super + m
+    bspc desktop -l next
+super + alt + m
+  bspc node -t fullscreen
+#============================
+#    State/Flags            |
+#============================
+# set the window state
+super + {t,shift + t}
+    bspc node -t {tiled,pseudo_tiled}
+#============================
+#    Focus/Swap             |
+#============================
+# focus the node in the given direction
+super + {_,shift +}{Left,Down,Up,Right}
+  bspc node -{f,s} {west,south,north,east}
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+    bspc desktop -f {prev,next}.local
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f,node -d} '^{1-9,10}'
+#============================
+#    Preselect              |
+#============================
+# preselect the direction
+super + ctrl + {Left,Down,Up,Right}
+        bspc node -p {west,south,north,east}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+    bspc node -p cancel
+#============================
+#    Move/Reize    	         |
+#============================
+# Resize nodes.
+super + alt + {Left,Down,Up,Right}
+  bspc node -z {left -20 0 || bspc node -z right -20 0, \
+                bottom 0 20 || bspc node -z top 0 20,\
+                top 0 -20 || bspc node -z bottom 0 -20,\
+                right 20 0 || bspc node -z left 20 0}
+#======================================
+#    Personal Configurations            |
+#======================================
+#============================
+#    File Managers        |
+#============================
+super + f
+    alacritty -e ranger
+super + l
+    alacritty -e lf
+#============================
+#    Browsers           |
+#============================
+super + a
+    firefox-developer-edition
+super + p
+    firefox
+#============================
+#    Utilities          |
+#============================
+
+# YouTube-DL
+super + y
+    yt-dlg
+
+# Top Application
+super + h
+    alacritty -e btop
+
+# Torrent Manager
+super + q
+    qbittorrent
+
+# Screenshots
+Print
+    flameshot & disown; flameshot gui
+super + shift + s
+    flameshot & disown; flameshot gui
+#============================
+#    Audio               |
+#============================
+# Volume Keys
+XF86AudioRaiseVolume
+  pamixer -i 5
+XF86AudioLowerVolume
+  pamixer -d 5
+XF86AudioMute
+  pamixer -t
+
+# Music
+super + s
+    /home/angel/.local/bin/spotify.sh
+super + c
+    pavucontrol
+
+XF86AudioPlay
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+XF86AudioNext
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+XF86AudioPrev
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
+#============================
+#    Notifications          |
+#============================
+ctrl + grave
+  dunstctl history-pop &
+ctrl + Return
+  dunstctl close-all &
+
+super + k
+    kdocker
+
+super + shift + enter
+    spawn
+
