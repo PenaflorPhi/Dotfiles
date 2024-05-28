@@ -83,9 +83,10 @@ super + l
 #    Browsers           |
 #============================
 super + a
-    firefox-developer-edition
-super + p
     firefox
+super + p
+    firefox-developer-edition
+
 #============================
 #    Utilities          |
 #============================
