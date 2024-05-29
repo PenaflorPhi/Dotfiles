@@ -9,7 +9,7 @@ super + space
 super + shift + space
     exec ~/.config/rofi/launchers/type-4/launcher.sh
 super + alt + Delete
-    exec ~/.config/rofi/powermenu/type-1/launcher.sh
+    exec ~/.config/rofi/powermenu/type-1/powermenu.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
