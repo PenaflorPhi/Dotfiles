@@ -1,1 +1,2 @@
-- [ ] Make a README file
+- [x] Make a README file
+- [ ] Finish the install script
